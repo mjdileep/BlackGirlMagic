@@ -1,16 +1,12 @@
-from bs4 import BeautifulSoup
-import requests
-from flask import Flask, request, redirect, render_template, request, session, abort
+from flask import Flask, render_template, request
 from pymessenger.bot import Bot
-from pymessenger import Element, Button
 from random import randint
-import os, sys
-import json
-import urllib.parse
+import os
 import csv
 
 app = Flask(__name__)
 bot = Bot (os.environ['ACCESS_TOKEN'])
+
 
 @app.route("/", methods=['GET', 'POST'])
 def main():
@@ -47,9 +43,11 @@ def main():
                 pass
     return "success"
 
+
 @app.route("/privacypolicy", methods=['GET', 'POST'])
 def privacy():
     return render_template('privacy.html')
+
 
 if __name__ == "__main__":
     app.run(port=6550)
