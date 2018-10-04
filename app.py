@@ -26,6 +26,7 @@ def main():
 
                 if x['message'].get('text'):
                     msg = "Hi, How are you?"
+                    return msg
                     a = bot.send_text_message(recipient_id, msg)
                     print(a)
                     print(x['message'].get('text'))
