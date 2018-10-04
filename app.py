@@ -3,7 +3,6 @@ from pymessenger.bot import Bot
 from random import randint
 import os
 import csv
-import logging
 
 app = Flask(__name__)
 bot = Bot (os.environ['ACCESS_TOKEN'])
@@ -18,17 +17,12 @@ def main():
             return 'Invalid verification token'
     if request.method == 'POST':
        output = request.get_json()
-       logging.info("Message recieved")
        for event in output['entry']:
           messaging = event['messaging']
           for x in messaging:
             recipient_id = x['sender']['id']
 
             if x.get('message'):
-
-                msg = "Hi, How are you?"
-                a = bot.send_text_message(recipient_id, msg)
-                return "success"
 
                 if x['message'].get('text'):
                     msg = "Hi, How are you?"
