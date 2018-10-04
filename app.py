@@ -26,6 +26,8 @@ def main():
                 if x['message'].get('text'):
                     msg = "Hi, How are you?"
                     a = bot.send_text_message(recipient_id, msg)
+                    print(a)
+                    print(x['message'].get('text'))
                 if x['message'].get('attachments'):
                     with open('./magic_csv/blackgirlmagicCSV.csv', 'r') as csvfile:
                         magiccsv = list(csv.reader(csvfile)) 
