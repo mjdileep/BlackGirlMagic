@@ -23,6 +23,11 @@ def main():
             recipient_id = x['sender']['id']
 
             if x.get('message'):
+
+                msg = "Hi, How are you?"
+                a = bot.send_text_message(recipient_id, msg)
+                return "success"
+
                 if x['message'].get('text'):
                     msg = "Hi, How are you?"
                     a = bot.send_text_message(recipient_id, msg)
